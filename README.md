@@ -34,3 +34,57 @@ Before you begin, ensure you have met the following requirements:
    ```bash
    git clone [https://github.com/yourusername/hive-mind-rts.git](https://github.com/yourusername/hive-mind-rts.git)
    cd hive-mind-rts
+
+Create a Virtual Environment (Optional but recommended):
+    Bash
+
+    python -m venv .venv
+    source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
+
+Install dependencies:
+    Bash
+
+    pip install -r requirements.txt
+
+Run the simulation:
+    Bash
+
+    python main.py
+
+🎮 How to Play
+
+   Start the Engine: Ensure your local Ollama app is running in the background before launching the game.
+
+   Auto-Play: Click the AUTO-PLAY: OFF button in the UI to toggle it ON. The game will automatically query the LLM, parse its commands, and execute turns.
+
+   Advise the AI: Click inside the dark grey text box at the bottom right. Type advice like "Focus entirely on the Economy objective until we have 3 Queens," and hit Enter. The UI will update to show your current advice, which the LLM will read on its next turn.
+
+   Victory/Defeat: The game ends when all Hives of one faction are destroyed. Do not close the window immediately—wait for the LLM to write its "Ancestral Memory" post-mortem so it can learn for your next session!
+
+📁 Project Structure
+
+    main.py: The core game loop, UI event handling, and Auto-Play logic.
+
+    engine.py: The game state machine, combat math, and autonomous Queen AI rules.
+
+    ui.py: Pygame rendering, UI components, and dynamic text wrapping.
+
+    llm_api.py: The threaded Ollama connector, prompt generation, and memory file I/O.
+
+    parser.py: Validates LLM output formatting and catches hallucinations.
+
+    constants.py: Game balance variables, colors, and string enums.
+
+🤝 Contributing
+
+This is an MVP built to explore LLM capabilities in game environments. Feel free to fork the repo and experiment! Great areas for expansion include:
+
+    Adding resource nodes or terrain modifiers to the map.
+
+    Adding a Summarizer thread to compress the journal.txt file on matches that exceed 200 turns.
+
+    Adding a second LLM to control the Red Faction.
+
+📜 License
+
+This project is open-source and available under the MIT License.
